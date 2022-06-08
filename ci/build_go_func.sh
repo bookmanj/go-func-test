@@ -1,7 +1,10 @@
 # set source function
-export SRC_PKG=./resource-func/src/hello.go
+SRC_PKG_REL=./resource-func/src/hello.go
+export SRC_PKG="$(echo "$(cd "$(dirname "$SRC_PKG_REL")"; pwd)/$(basename "$SRC_PKG_REL")")"
 #set function package destination
-export DEPLOY_PKG=./go-func-package/hello.so
+DEPLOY_PKG_REL=./go-func-package/hello.so
+export DEPLOY_PKG="$(echo "$(cd "$(dirname "$DEPLOY_PKG_REL")"; pwd)/$(basename "$DEPLOY_PKG_REL")")"
+
 
 echo "source: ${SRC_PKG}"
 echo "dest: ${DEPLOY_PKG}"
